@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS url_mappings(
+    id SERIAL PRIMARY KEY,
+    time TIMESTAMPTZ NOT NULL,
+    slug VARCHAR(6),
+    url TEXT
+);
