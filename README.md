@@ -1,13 +1,16 @@
 # Link Shortener
 
-That is incredibly overdesigned.
+a basic link shortener written in go, using postgres as a backend
 
-core api written in go, 
+# How to use
 
-using postgresql, and redis as a caching layer.
+make a shortened link
 
-
-built to handle up to __ calls a second
+```sh
+curl --request POST \
+  --url 'https://shorten.codaea.com/api/new?url=example.com'
+```
+this returns a `slug`. if you visit `shorten.codaea.com/<YOURSLUG>` it will redirect you.
 
 # Performance
 
@@ -20,3 +23,4 @@ with just postgres and no caching, on a virtual machine running with
 
 it would top out on the current jmeter test at 613ms to create a link, and viewing at 282ms. with 1200 new links a second and 1370 new links a second
 
+this was mostly database usage though, and if we use in memory go and redis it would go faster.
