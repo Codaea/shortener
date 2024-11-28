@@ -32,14 +32,14 @@ func main() {
 		c.JSON(200, gin.H{ "message": "pong"})
 	})
 
-	r.GET("/:slug", func(c *gin.Context) {
-		getLink(c, dbpool)
-	})
-
 	r.POST("/api/new", func(c *gin.Context) {
 		newLink(c, dbpool)
 	})
 
+
+	r.GET("/:slug", func(c *gin.Context) {
+		getLink(c, dbpool)
+	})
 
 	r.Run() // listen and serve on localhost:8080
 }
